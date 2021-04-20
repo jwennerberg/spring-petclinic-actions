@@ -2,9 +2,9 @@ name: OpenShift Pet Clinic Workflow
 on: [ push, workflow_dispatch ]
 
 env:
-  REGISTRY_USER: tetchell
+  REGISTRY_USER: jwennerberg
   IMAGE_REGISTRY: quay.io
-  TEST_NAMESPACE: tetchell-code
+  TEST_NAMESPACE: jwennerb-dev
   APP_NAME: petclinic
   APP_PORT: 8080
   TEAR_DOWN: false
@@ -142,8 +142,8 @@ jobs:
       - name: OpenShift login
         uses: redhat-actions/oc-login@v1
         with:
-          openshift_server_url: ${{ secrets.OPENSHIFT_SANDBOX_URL }}
-          openshift_token: ${{ secrets.TIM_OPENSHIFT_TOKEN }}
+          openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL }}
+          openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
           # openshift_username:
           # openshift_password:
           insecure_skip_tls_verify: true
